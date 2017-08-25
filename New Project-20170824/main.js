@@ -22,7 +22,17 @@ function callback(error, response, body) {
         console.log("Number Of Results:" + rnr_result.response.numFound);
         //console.log("JSON Object:" + rnr_result);
         console.log("Maximum Feature Score:" + rnr_result.response.maxScore);
-        console.log("Docs HTML" + rnr_result.response.docs[0].contentHtml);
+       // console.log("Docs HTML" + rnr_result.response.docs[0].contentHtml);
+        rnr_result.response.docs.forEach(function(item, index){
+                if(index === 0){
+                //console.log("***********************");
+                console.log("Index: "+index);
+                console.log("Score: "+item.score);
+                console.log("Doc Name: "+ item.fileName);
+                //console.log("***********************");
+                console.log("Content HTML: "+ item.contentHtml);
+                }
+        })
     }
 }
 
