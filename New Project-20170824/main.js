@@ -1,5 +1,3 @@
-/* Simple Hello World in Node.js */
-console.log("Hello World");
 var request = require('request');
 
 var headers = {
@@ -18,9 +16,16 @@ var rnr_result = '';
 
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
-        console.log(body);
-        rnr_result = body;
+        //console.log(typeof(body));
+        rnr_result = JSON.parse(body);
+        //console.log(typeof(rnr_result));
+        console.log("Number Of Results:" + rnr_result.response.numFound);
+        //console.log("JSON Object:" + rnr_result);
+        console.log("Maximum Feature Score:" + rnr_result.response.maxScore);
     }
 }
 
+
+//var json_object = JSON.stringify(rnr_result);
+console.log("JSON Object:" + rnr_result);
 request(options, callback);
