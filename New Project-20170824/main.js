@@ -22,6 +22,7 @@ function callback(error, response, body) {
         console.log("Number Of Results:" + rnr_result.response.numFound);
         //console.log("JSON Object:" + rnr_result);
         console.log("Maximum Feature Score:" + rnr_result.response.maxScore);
+        console.log("Docs HTML" + rnr_result.response.docs[0].contentHtml);
     }
 }
 
